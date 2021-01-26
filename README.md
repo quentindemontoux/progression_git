@@ -1,6 +1,6 @@
 # progression_git
 
-** Membres du projet : **
+**Membres du projet :**
 
 * DEMONTOUX Quentin
 * JUDEAUX Idryss

@@ -1,3 +1,4 @@
 # Compte-rendus de chaque séance
 
-* [26/01/2021] (/1.md)
+* Les compte-rendus dispos :
+  * [26/01/2021](https://github.com/Adrrick/progression_git/blob/main/compte-rendus/1.md)

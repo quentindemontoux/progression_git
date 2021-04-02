@@ -15,7 +15,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
     * [5. Tests unitaire](#5-tests-unitaire)
     * [6. Pipeline](#6-pipeline)
     * [7. Production](#7-production)
-    * [8. Configurer .drone.yml](#8-configurer.drone.yml)
+    * [8. Configurer .drone.yml](#8-configurer-.drone.yml)
 
 
 # I. Prérequis :

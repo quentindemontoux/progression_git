@@ -32,7 +32,7 @@ runner : 192.168.1.35
 
 ![](https://i.imgur.com/lY4wN9K.png)
 
-Installation :
+# Installation :
 
 ## 1) Gitea
 

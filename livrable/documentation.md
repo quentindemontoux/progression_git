@@ -5,7 +5,7 @@
 - Ferreira Silva Hugo
 - Demontoux Quentin
 
-# Contexte:
+# Contexte
 
 Pour notre projet Infra & Si , nous avions comme ambition de faire un site de versionning (comme github, gitlab) avec du deploiement automatisé.
 

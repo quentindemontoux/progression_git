@@ -9,11 +9,13 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 
 # Architecture :
 
-gitea : 192.168.1.74
-drone : 192.168.1.99
-bdd : 192.168.1.98
-prod : 192.168.1.38
-runner : 192.168.1.35
+|VM|IP privée|
+|--------|--------|
+|gitea|192.168.1.74|
+|drone|192.168.1.99|
+|bdd|192.168.1.98|
+|prod|192.168.1.38|
+|runner|192.168.1.35|
 
 # Redirection de ports pour une utilisation a distance
 

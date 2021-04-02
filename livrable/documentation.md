@@ -2,12 +2,17 @@ Note :
 
 Le guide est fait en suivant notre configuration. Rien ne vous empêche de prendre des solutions qui vous plaisent plus que les nôtres. Cependant, ce sera à vous de vous adapter.
 
-# Prérequis :
+# Sommaire
+
+* [I. Prérequis](#i-Prérequis)
+* [II. Architecture](#ii-Architecture)
+
+# I. Prérequis :
 
 - Un hyperviseur (https://www.virtualbox.org/)
 - 5 VM Centos 7 (https://www.centos.org/download/) avec un accès internet pour télécharger des packages
 
-# Architecture :
+# II. Architecture :
 
 |VM|IP privée|
 |--------|--------|
@@ -17,7 +22,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 |prod|192.168.1.38|
 |runner|192.168.1.35|
 
-# Redirection de ports pour une utilisation à distance
+# III. Redirection de ports pour une utilisation à distance
 
 1. Accéder a l'interface de votre box souvent en entrant 192.168.1.1 dans votre navigateur web.
 2. Avoir les droits d'administrateur sur l'interface (voir selon l'operateur et la box).
@@ -34,7 +39,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 
 ![](https://i.imgur.com/lY4wN9K.png)
 
-# Installation :
+# IV. Installation :
 
 ## 1) Gitea
 

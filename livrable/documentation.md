@@ -1,4 +1,4 @@
-# Documentation projet réseau : déploiement automatisé.
+# Documentation projet réseau : site de versionning avec déploiement automatisé.
 
 - Judéaux Idryss
 - Lefebvre Tristan

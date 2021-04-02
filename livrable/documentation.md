@@ -4,8 +4,19 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 
 # Sommaire
 
-* [I. Prérequis](#i-Prérequis)
-* [II. Architecture](#ii-Architecture)
+* [I. Prérequis](#i-prérequis)
+* [II. Architecture](#ii-architecture)
+* [III. Redirection de ports pour une utilisation à distance](#iii-redirection-de-ports-pour-une-utilisation-à-distance)
+* [IV. Installation](#iv-installation)
+    * [1. Gitea](#1-gitea)
+    * [2. Base de données](#2-base-de-données)
+    * [3. Drone](#3-drone)
+    * [4. Runner](#4-runner)
+    * [5. Tests unitaire](#5-tests-unitaire)
+    * [6. Pipeline](#6-pipeline)
+    * [7. Production](#7-production)
+    * [8. Configurer .drone.yml](#8-configurer.drone.yml)
+
 
 # I. Prérequis :
 

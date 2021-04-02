@@ -60,12 +60,12 @@ Le passage ci-dessous vous concerne si vous avez bloqué sur la configuration de
 Il est d'abord nécessaire d'indiquer l'IP de votre VM à mariaDB :
 echo "bind-address = 192.168.1.98" >> /etc/my.cnf
 
-Pour configurer la base de données, nous avons rentré cette suite de commande :
-mysql -u root -e "SET old_passwords=0;
-CREATE USER 'gitea'@'192.168.1.74' IDENTIFIED BY 'gitea';
-CREATE DATABASE giteadb CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
-GRANT ALL PRIVILEGES ON giteadb.* TO 'gitea'@'192.168.1.74';
-FLUSH PRIVILEGES;"
+Pour configurer la base de données, nous avons rentré cette suite de commande :  
+mysql -u root -e "SET old_passwords=0;  
+CREATE USER 'gitea'@'192.168.1.74' IDENTIFIED BY 'gitea';  
+CREATE DATABASE giteadb CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';  
+GRANT ALL PRIVILEGES ON giteadb.* TO 'gitea'@'192.168.1.74';  
+FLUSH PRIVILEGES;"  
 
 Vous êtes censé être notifié par un message validant la création de votre base de données.  
 N'oubliez pas d'ouvrir le port 3306.  

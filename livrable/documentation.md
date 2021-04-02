@@ -17,7 +17,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 |prod|192.168.1.38|
 |runner|192.168.1.35|
 
-# Redirection de ports pour une utilisation a distance
+# Redirection de ports pour une utilisation à distance
 
 1. Accéder a l'interface de votre box souvent en entrant 192.168.1.1 dans votre navigateur web.
 2. Avoir les droits d'administrateur sur l'interface (voir selon l'operateur et la box).

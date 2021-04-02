@@ -7,7 +7,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 * [I. Prérequis](#i-prérequis)
 * [II. Architecture](#ii-architecture)
 * [III. Redirection de ports pour une utilisation à distance](#iii-redirection-de-ports-pour-une-utilisation-à-distance)
-* [IV. Installation](#iv-installation--)
+* [IV. Installation](#iv-installation)
     * [1. Gitea](#1-gitea)
     * [2. Base de données](#2-base-de-données)
     * [3. Drone](#3-drone)
@@ -18,12 +18,12 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
     * [8. Configurer le fichier yaml](#8-configurer-le-fichier-yaml)
 
 
-# I. Prérequis :
+# I. Prérequis
 
 - Un hyperviseur (https://www.virtualbox.org/)
 - 5 VM Centos 7 (https://www.centos.org/download/) avec un accès internet pour télécharger des packages
 
-# II. Architecture :
+# II. Architecture
 
 |VM|IP privée|
 |--------|--------|
@@ -50,7 +50,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 
 ![](https://i.imgur.com/lY4wN9K.png)
 
-# IV. Installation :
+# IV. Installation
 
 ## 1) Gitea
 

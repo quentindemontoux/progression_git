@@ -401,6 +401,7 @@ Essayez de synchroniser. Après quelques secondes, votre repo apparaît. Faites 
 
 Il vous faut créer un .drone.yml à la racine de votre repo. Mettez y ces infos :
 
+```yaml
 kind: pipeline
 type: docker
 name: default
@@ -411,6 +412,8 @@ steps:
   commands:
   - echo hello
   - echo world
+```
+
 
 Essayez de push. Si tout se passe bien, vous devriez voir votre push sur drone. Vous pouvez cliquer
 dessus pour voir ce qui s'y passe. Normalement, votre commit sera validé.
@@ -445,6 +448,7 @@ https://docs.drone.io/pipeline/overview/
 
 Si vous voulez suivre notre installation, alors voici notre .yml (modifiez selon votre config) :
 
+```yaml
 kind: pipeline
 type: docker
 name: auto_deploy
@@ -462,6 +466,8 @@ steps:
   - sshpass -p motdepasse ssh -oStrictHostKeyChecking=accept-new user@x.x.x.x -p 5500
   - if /repo/ == 1; git pull http://x.x.x.x:3000/user/repo; else git clone http://x.x.x.x:3000/user/repo; fi
   - exit
+```
+
 
 **ATTENTION** : notre configuration n'est pas du tout sécurisé, vous pouvez voir un mot de passe en clair.
 Il est fortement déconseillé de nous suivre au pied de la lettre ! Une alternative serait d'utiliser

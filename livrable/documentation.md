@@ -1,3 +1,18 @@
+# Documentation test unitaire.
+
+- Judéaux Idryss
+- Lefebvre Tristan
+- Ferreira Silva Hugo
+- Demontoux Quentin
+
+---
+
+# Contexte:
+
+Pour notre projet Infra & Si , nous avions comme ambition de faire un site de versionning (comme github, gitlab) avec du deploiement automatisé.
+
+Les tests unitaires nous permettront de push le code "automatiquement" en fonction du retour des tests si il est 'positif' ou non.
+
 Note :
 
 Le guide est fait en suivant notre configuration. Rien ne vous empêche de prendre des solutions qui vous plaisent plus que les nôtres. Cependant, ce sera à vous de vous adapter.

@@ -174,7 +174,7 @@ $ docker logs runner
 INFO[0000] starting the server
 INFO[0000] successfully pinged the remote server
 
-## 6) Tests unitaire
+## 5) Tests unitaire
 
 Ils existe 2 manières de faire des tests unitaires. 
 
@@ -391,7 +391,7 @@ Si le programme retourne un message d'erreur c'est que  ````def remove_speed(sel
 
 Cette partie de code n'est pas un test c'est comme si on éteignait notre console après avoir joué à un jeu.
 
-## 5) Pipeline
+## 6) Pipeline
 
 Vous pouvez maintenant vérifier que tout fonctionne. Pour ça, connectez vous sur gitea et créez un repository. 
 Ensuitez, tentez d'accéder à http://votre.ip/login. 
@@ -420,7 +420,7 @@ Vous pouvez cliquer dessus pour voir ce qui s'y passe. Normalement, votre commit
 Vous pouvez customiser votre .yml pour y mettre vos tests et votre déploiement automatisé.  
 Avant ça, il faut configurer la VM de production.  
 
-## 6) Production
+## 7) Production
 
 Installez sur cette VM tous les packages nécessaires à votre projet.  
 Pour nous, c'est du Python, alors nous avons installé python3.  
@@ -439,7 +439,7 @@ $ sudo systemctl start sshd
 
 Il faut également ouvrir le port 22.  
 
-## 7) Configurer .drone.yml
+## 8) Configurer .drone.yml
 
 Vous pouvez maintenant mettre tout ce dont vous avez besoin dans votre .yml  
 Pour bien comprendre son fonctionnement, vous êtes invité à aller ici : https://docs.drone.io/pipeline/overview/  

@@ -15,7 +15,7 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
     * [5. Tests unitaire](#5-tests-unitaire)
     * [6. Pipeline](#6-pipeline)
     * [7. Production](#7-production)
-    * [8. Configurer .drone.yml](#8-configurer-.drone.yml)
+    * [8. Configurer le fichier yml](#8-configurer-le-fichier-yml)
 
 
 # I. Prérequis :
@@ -455,7 +455,7 @@ $ sudo systemctl start sshd
 
 Il faut également ouvrir le port 22.  
 
-## 8) Configurer .drone.yml
+## 8) Configurer le fichier yml
 
 Vous pouvez maintenant mettre tout ce dont vous avez besoin dans votre .yml  
 Pour bien comprendre son fonctionnement, vous êtes invité à aller ici : https://docs.drone.io/pipeline/overview/  

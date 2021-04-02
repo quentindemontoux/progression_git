@@ -1,4 +1,4 @@
-# Documentation test unitaire.
+# Documentation projet réseau : déploiement automatisé.
 
 - Judéaux Idryss
 - Lefebvre Tristan

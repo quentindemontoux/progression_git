@@ -38,24 +38,24 @@ Le guide est fait en suivant notre configuration. Rien ne vous empêche de prend
 
 ## 1) Gitea
 
-Suivez l'installation de gitea avec le binaire : https://docs.gitea.io/en-us/install-from-binary/ 
-Vous pouvez permettre à gitea de se lancer au démarrage : https://docs.gitea.io/en-us/linux-service/ 
+Suivez l'installation de gitea avec le binaire : https://docs.gitea.io/en-us/install-from-binary/  
+Vous pouvez permettre à gitea de se lancer au démarrage : https://docs.gitea.io/en-us/linux-service/  
 
-N'oubliez pas d'ouvrir le port de gitea (par défaut 3000) pour y accéder par le web. 
-Sous centos 7 : sudo firewall-cmd --add-port=3000/tcp --permanent 
-Il faut ensuite recharger le firewall avec sudo firewall-cmd --reload 
+N'oubliez pas d'ouvrir le port de gitea (par défaut 3000) pour y accéder par le web.  
+Sous centos 7 : sudo firewall-cmd --add-port=3000/tcp --permanent  
+Il faut ensuite recharger le firewall avec sudo firewall-cmd --reload  
 
-Si tout s'est bien passé, vous devriez pouvoir accéder à gitea avec votre.ip:3000 
+Si tout s'est bien passé, vous devriez pouvoir accéder à gitea avec votre.ip:3000  
 
-Il vous faudra configurer gitea avec votre première connexion. Nous avons gardé les paramètres par défaut. 
-N'oubliez pas de remplacer les adresses template par les vôtres (ex : ip BDD). 
+Il vous faudra configurer gitea avec votre première connexion. Nous avons gardé les paramètres par défaut.  
+N'oubliez pas de remplacer les adresses template par les vôtres (ex : ip BDD).  
 
 ## 2) Base de données
 
-Si vous avez suivi la documentation de gitea, vous devriez avoir déjà installé la base de données.
-Nous avons utilisé mariaDB (sudo yum install -y mariadb-server).
+Si vous avez suivi la documentation de gitea, vous devriez avoir déjà installé la base de données.  
+Nous avons utilisé mariaDB (sudo yum install -y mariadb-server).  
 
-Le passage ci-dessous vous concerne si vous avez bloqué sur la configuration de gitea :
+Le passage ci-dessous vous concerne si vous avez bloqué sur la configuration de gitea :  
 
 Il est d'abord nécessaire d'indiquer l'IP de votre VM à mariaDB :
 echo "bind-address = 192.168.1.98" >> /etc/my.cnf
@@ -67,15 +67,15 @@ CREATE DATABASE giteadb CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';
 GRANT ALL PRIVILEGES ON giteadb.* TO 'gitea'@'192.168.1.74';
 FLUSH PRIVILEGES;"
 
-Vous êtes censé être notifié par un message validant la création de votre base de données. 
-N'oubliez pas d'ouvrir le port 3306. 
-Vous pouvez maintenant retourner dans gitea et entrer les informations qui vous manquaient. 
-Si tout s'est bien passé, gitea est maintenant utilisable, et vous avez créé un premier compte. 
-Gardez ce compte en mémoire, il a des droits admin. Dans le pire des cas, vous pourrez en créer un autre. 
+Vous êtes censé être notifié par un message validant la création de votre base de données.  
+N'oubliez pas d'ouvrir le port 3306.  
+Vous pouvez maintenant retourner dans gitea et entrer les informations qui vous manquaient.  
+Si tout s'est bien passé, gitea est maintenant utilisable, et vous avez créé un premier compte.  
+Gardez ce compte en mémoire, il a des droits admin. Dans le pire des cas, vous pourrez en créer un autre.  
 
 ## 3) Drone
 
-Nous avons utilisé docker pour faire fonctionner drone. Pour ce faire :
+Nous avons utilisé docker pour faire fonctionner drone. Pour ce faire :  
 
 $ sudo yum install -y yum-utils
 
@@ -85,36 +85,36 @@ $ sudo yum-config-manager \
 
 $ sudo yum install docker-ce docker-ce-cli containerd.io
 
-Il est maintenant possible de passer docker en service, pour le démarrer au lancement :
+Il est maintenant possible de passer docker en service, pour le démarrer au lancement :  
 
 $ sudo systemctl enable docker.service
 
 $ sudo systemctl enable containerd.service
 
-Vous pouvez maintenant ajouter l'utilisateur de votre VM au groupe docker. 
-Cela vous évitera de devoir faire des sudo à chaque commande docker. Pour ce faire : 
+Vous pouvez maintenant ajouter l'utilisateur de votre VM au groupe docker.  
+Cela vous évitera de devoir faire des sudo à chaque commande docker. Pour ce faire :  
 
 $ sudo groupadd docker
 
 $ sudo usermod -aG docker $USER
 
-Déconnectez vous puis reconnectez vous. Vous devriez pouvoir faire des commandes docker sans problème. 
+Déconnectez vous puis reconnectez vous. Vous devriez pouvoir faire des commandes docker sans problème.  
 
-Maintenant, allez dans les paramètres de votre compte sur gitea, OAuth2 Applications. 
-Créez une application nommée drone qui redirige vers http://(votre ip)/login 
-Gardez de côté votre ID client et secret client, qui vous serons nécessaires pour la suite. 
-Sauvegardez et retournez dans drone. 
+Maintenant, allez dans les paramètres de votre compte sur gitea, OAuth2 Applications.  
+Créez une application nommée drone qui redirige vers http://(votre ip)/login  
+Gardez de côté votre ID client et secret client, qui vous serons nécessaires pour la suite.  
+Sauvegardez et retournez dans drone.  
 
 Vous aurez besoin d'un secret partagé, pour ça :
 
 $ openssl rand -hex 16
 
-Gardez ce secret de côté. 
-Il vous faut maintenant télécharger l'image de drone pour docker : 
+Gardez ce secret de côté.  
+Il vous faut maintenant télécharger l'image de drone pour docker :  
 
 $ docker pull drone/drone:1
 
-Vous pouvez maitenant créer votre conteneur drone : 
+Vous pouvez maitenant créer votre conteneur drone :  
 
 $ docker run \
   --volume=/var/lib/drone:/data \
@@ -131,26 +131,26 @@ $ docker run \
   --name=drone \
   drone/drone:1
 
-Remplacez toutes les sections {{}} par vos informations. 
-GITEA_SERVER est l'adresse de votre serveur gitea (ex : http://votre.ip:3000). 
-DRONE_RPC_SECRET est votre secret partagé. 
-DRONE_SERVER_HOST est l'adresse de votre serveur drone (ex : votre.ip:80) 
-DRONE_SERVER_PROTO est votre protocole, http ou https. Choisissez celui qui vous correspond. Nous avons 
-réalisé le projet en http, il est fortement recommandé de le faire en https. 
+Remplacez toutes les sections {{}} par vos informations.  
+GITEA_SERVER est l'adresse de votre serveur gitea (ex : http://votre.ip:3000).  
+DRONE_RPC_SECRET est votre secret partagé.  
+DRONE_SERVER_HOST est l'adresse de votre serveur drone (ex : votre.ip:80)  
+DRONE_SERVER_PROTO est votre protocole, http ou https. Choisissez celui qui vous correspond.  
+Nous avons réalisé le projet en http, il est fortement recommandé de le faire en https.  
 
-Si tout s'est bien passé, vous ne devriez pas avoir d'erreur avec la commande docker logs drone. 
+Si tout s'est bien passé, vous ne devriez pas avoir d'erreur avec la commande docker logs drone.  
 
 ## 4) Runner
 
-Commencez par passer SElinux en permissif en éditant le fichier /etc/selinux/config pour changer la ligne SELINUX=enforced en SELINUX=permissive. 
-Vous ne pourrez pas faire fonctionner le runner sans ça. 
-Il vous faut ouvrir le port 3000. 
+Commencez par passer SElinux en permissif en éditant le fichier /etc/selinux/config pour changer la ligne SELINUX=enforced en SELINUX=permissive.  
+Vous ne pourrez pas faire fonctionner le runner sans ça.  
+Il vous faut ouvrir le port 3000.  
 
-Il vous faut maintenant répéter exactement la même opération pour installer docker, sauf que vous allez installer une image de runner drone : 
+Il vous faut maintenant répéter exactement la même opération pour installer docker, sauf que vous allez installer une image de runner drone :  
 
 $ docker pull drone/drone-runner-docker:1
 
-Vous pouvez maintenant créer le conteneur runner drone : 
+Vous pouvez maintenant créer le conteneur runner drone :  
 
 $ docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
@@ -166,8 +166,8 @@ $ docker run -d \
   --name runner \
   drone/drone-runner-docker:1
 
-N'oubliez pas de remplacer les lignes de base par vos informations. 
-Vous pouvez ensuite faire un docker logs runner. Vous devriez avoir quelque chose comme ça : 
+N'oubliez pas de remplacer les lignes de base par vos informations.  
+Vous pouvez ensuite faire un docker logs runner. Vous devriez avoir quelque chose comme ça :  
 
 $ docker logs runner
 
@@ -414,22 +414,22 @@ steps:
 ```
 
 
-Essayez de push. Si tout se passe bien, vous devriez voir votre push sur drone. 
-Vous pouvez cliquer dessus pour voir ce qui s'y passe. Normalement, votre commit sera validé. 
+Essayez de push. Si tout se passe bien, vous devriez voir votre push sur drone.  
+Vous pouvez cliquer dessus pour voir ce qui s'y passe. Normalement, votre commit sera validé.  
 
-Vous pouvez customiser votre .yml pour y mettre vos tests et votre déploiement automatisé. 
-Avant ça, il faut configurer la VM de production. 
+Vous pouvez customiser votre .yml pour y mettre vos tests et votre déploiement automatisé.  
+Avant ça, il faut configurer la VM de production.  
 
 ## 6) Production
 
-Installez sur cette VM tous les packages nécessaires à votre projet. 
-Pour nous, c'est du Python, alors nous avons installé python3. 
+Installez sur cette VM tous les packages nécessaires à votre projet.  
+Pour nous, c'est du Python, alors nous avons installé python3.  
 
-Il vous faudra obligatoirement git : sudo yum install -y git 
+Il vous faudra obligatoirement git : sudo yum install -y git  
 
-Si vous voulez suivre notre installation : sudo yum install -y python3 
+Si vous voulez suivre notre installation : sudo yum install -y python3  
 
-Il vous faudra permettre l'accès SSH à votre VM, pour ça : 
+Il vous faudra permettre l'accès SSH à votre VM, pour ça :  
 
 $ sudo yum –y install openssh-server
 
@@ -437,14 +437,14 @@ $ sudo systemctl enable sshd
 
 $ sudo systemctl start sshd
 
-Il faut également ouvrir le port 22.
+Il faut également ouvrir le port 22.  
 
 ## 7) Configurer .drone.yml
 
-Vous pouvez maintenant mettre tout ce dont vous avez besoin dans votre .yml 
-Pour bien comprendre son fonctionnement, vous êtes invité à aller ici : https://docs.drone.io/pipeline/overview/ 
+Vous pouvez maintenant mettre tout ce dont vous avez besoin dans votre .yml  
+Pour bien comprendre son fonctionnement, vous êtes invité à aller ici : https://docs.drone.io/pipeline/overview/  
 
-Si vous voulez suivre notre installation, alors voici notre .yml (modifiez selon votre config) : 
+Si vous voulez suivre notre installation, alors voici notre .yml (modifiez selon votre config) :  
 
 ```yaml
 kind: pipeline
@@ -467,14 +467,14 @@ steps:
 ```
 
 
-**ATTENTION** : notre configuration n'est pas du tout sécurisé, vous pouvez voir un mot de passe en clair. 
-Il est fortement déconseillé de nous suivre au pied de la lettre ! Une alternative serait d'utiliser 
-une paire de clés SSH (ssh-keygen, ssh-copy-id, ...) pour éviter d'avoir besoin du mot de passe. 
-Quiquonque à accès à votre .yml peut voir un de vos mots de passe ! A éviter absolument ! 
+**ATTENTION** : notre configuration n'est pas du tout sécurisé, vous pouvez voir un mot de passe en clair.  
+Il est fortement déconseillé de nous suivre au pied de la lettre ! Une alternative serait d'utiliser  
+une paire de clés SSH (ssh-keygen, ssh-copy-id, ...) pour éviter d'avoir besoin du mot de passe.  
+Quiquonque à accès à votre .yml peut voir un de vos mots de passe ! A éviter absolument !  
 
-Vous devez remplacer les x.x.x.x par votre ip publique. 
+Vous devez remplacer les x.x.x.x par votre ip publique.  
 
-Vous pouvez tenter de push tout ce que vous avez à mettre dans votre repo. 
-Si tout se passe bien,vous aurez un déploiement automatisé (sauf si vous avez volontairement fait une erreur). 
+Vous pouvez tenter de push tout ce que vous avez à mettre dans votre repo.  
+Si tout se passe bien,vous aurez un déploiement automatisé (sauf si vous avez volontairement fait une erreur).  
 
-Lancez votre VM de production et vérifiez que votre repo a bien été clone/pull. 
+Lancez votre VM de production et vérifiez que votre repo a bien été clone/pull.  
